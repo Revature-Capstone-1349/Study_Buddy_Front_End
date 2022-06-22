@@ -1,0 +1,13 @@
+.container {
+    align-self: center;
+    margin: 20px;
+}
+mat-card{
+width: 40%;
+align-items: right;
+box-shadow: 10px 10px black;
+}
+
+button{
+    width: 100%;
+}
