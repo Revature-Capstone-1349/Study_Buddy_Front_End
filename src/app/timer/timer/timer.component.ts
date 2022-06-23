@@ -109,6 +109,7 @@ export class TimerComponent implements OnInit {
     this.disabled = false;
     this.show = true;
     this.animate = false;
+    
     clearInterval(this.timer);
    
   }

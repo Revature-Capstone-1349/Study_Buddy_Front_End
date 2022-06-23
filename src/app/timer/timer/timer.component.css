@@ -8,7 +8,7 @@
    }
    .B{
    
-     /* how this works , pone los lementos uno al lado del otro  */
+    
        display: flex; 
        justify-content: center;
        height: 3rem;
