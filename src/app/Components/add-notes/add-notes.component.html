@@ -1,22 +1,29 @@
 <mat-card class="container mt-4">
 <div class="container row">
     <div class="col-lg-3">
-    <mat-form-field class="input-fields">
-        <div class="form-group">
-            <mat-label for="Note Suject" class="h5">Note Subject</mat-label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <mat-label for="Note Suject" class="h5">Sub-Category</mat-label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <mat-label for="Note Text" class="h5">Sub-Text</mat-label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            
-        </div>
-        <button mat-raised-button color="primary" class="btn-block">Add Note</button>
-    </mat-form-field>
+    <form #noteForm="ngForm" (ngSubmit) = "onSubmitHandler(noteForm)">
+        <mat-label for="Note Subject" class="h5">Note Subject</mat-label>
+        <mat-form-field  class="input-fields" >
+            <input type="text" class="form-control" name="subject" matInput ngModel #Subject="ngModel" required>
+        </mat-form-field>
+        
+        <mat-label for="Note Suject" class="h5">Sub-Category</mat-label>
+        <mat-form-field>
+            <input type="text" class="form-control" name="sub-category" matInput ngModel #SubCategory="ngModel" required>
+        </mat-form-field>
+
+        <mat-label for="Note Text" class="h5">Sub-Text</mat-label>
+        <mat-form-field>            
+            <textarea name="" id="" cols="30" rows="10" name="text-area" matInput ngModel #Text="ngModel" required></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field>   
+        <input type = "submit" class="btn-block btn-primary" value="Add Note"/>
+        </mat-form-field> -->
+        <button type ="submit" mat-raised-button color="primary" type="submit"
+            class="btn-block" style="max-width: 300px">
+    Submit
+    </button>
+</form>
 </div>
 </div>
 </mat-card>

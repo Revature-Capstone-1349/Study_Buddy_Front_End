@@ -9,6 +9,7 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
@@ -89,6 +90,7 @@ const MaterialComponents = [
   MatTreeModule,
   OverlayModule,
   PortalModule,
+  MatFormFieldModule,
   ScrollingModule
 ]
 
