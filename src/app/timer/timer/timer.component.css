@@ -1,4 +1,5 @@
 
+
 #A{
     border: 1px gray solid;
     background-color: whitesmokes;
@@ -45,7 +46,7 @@
                }
          
                button {
-                 font-size: 10px;
+                 font-size: 25px;
                  width: 3rem;
                  margin:  1px;
                  border-radius: 10px;
@@ -54,7 +55,7 @@
                  color: color-magenta;
                  background: color-black;
                  
-         
+        
                }
    
                .content-btn-action {
@@ -62,4 +63,7 @@
                    justify-content: center;
                    margin-top: 0rem;
                    padding-bottom: 1rem;}
+
+
+                
          

@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class TimerService {
-  public hours: number =0;
-  public minutes: number =0;
-  public seconds : number=10 ; 
+
+  private break: boolean = false;
+  
+  public hours: number = 0;
+  public minutes: number = 0;
+  public seconds : number= 0;
+  
+  public studyHours: number = 0;
+  public studyMinutes: number = 0;
+  public studySeconds : number= 0;
+
+  public breakHours: number = 0;
+  public breakMinutes: number = 0;
+  public breakSeconds : number= 0; 
 
   private timer: any; 
   private date = new Date();
@@ -15,6 +27,9 @@ export class TimerService {
   public show: boolean = true;
   public disabled: boolean = false;
   public animate: boolean = false;
+
+  constructor(public _snackBar: MatSnackBar){
+  }
 
   increment(type: 'H' | 'M' | 'S') {
     if (type === 'H') {
@@ -76,7 +91,7 @@ export class TimerService {
       setTimeout(() => {
         this.stop();
       
-      }, 5000);
+      }, 0);
 
     }
   }
@@ -95,14 +110,33 @@ export class TimerService {
       }     
     }
   }
-
+ 
   stop() {    
     this.disabled = false;
     this.show = true;
     this.animate = false;
-    
     clearInterval(this.timer);
-   
+    this.breakTime();
+  }
+  
+  breakTime(){
+    if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
+        this.break === false) {
+        this.break = true;
+        this._snackBar.open("You've made it to break time", "Enjoy!");
+        this.hours = this.breakHours;
+        this.minutes = this.breakMinutes;
+        this.seconds = this.breakSeconds;
+        this.start();
+    } else if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
+        this.break === true) {
+        this.break = false;
+        this._snackBar.open("Break is over, lets continue", "You can do it!");
+        this.hours = this.studyHours;
+        this.minutes = this.studyMinutes;
+        this.seconds = this.studySeconds;
+        this.start();
+    }
   }
 
   reset() {

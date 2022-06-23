@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { TimerService } from 'src/app/timer.service';
+
 
 
 
@@ -11,11 +12,20 @@ import { timer } from 'rxjs';
 })
 export class CreateTimerComponent implements OnInit {
  
-    constructor() { }
+  
+
+    constructor(public timerService: TimerService ) { }
 
   ngOnInit(): void {
   }
 
-  createTimer(){ }
+  createTimer(){ 
+    this.timerService.studyHours;
+    this.timerService.studyMinutes;
+    this.timerService.studySeconds;
+    this.timerService.breakHours;
+    this.timerService.breakMinutes;
+    this.timerService.breakSeconds;
+   }
 
 }
