@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './Modules/material/material.module';
 import { TimerComponent } from './timer/timer/timer.component';
 import { CreateTimerComponent } from './timer/create-timer/create-timer.component';
+import { TimerService } from './timer.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { CreateTimerComponent } from './timer/create-timer/create-timer.componen
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [TimerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
