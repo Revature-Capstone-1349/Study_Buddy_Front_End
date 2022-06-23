@@ -1,0 +1,16 @@
+mat-card{
+    background-color: #fff;
+    margin-top: 50px;
+    border-radius: 10px;
+    align-items: left;
+    box-shadow: 10px 10px #d3d3d3;
+}
+
+mat-card-actions button{
+    margin: 10px;
+   align-content: center;
+} 
+
+mat-card-footer{
+    align-items: end;
+}
