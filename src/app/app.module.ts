@@ -17,9 +17,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ErrorPageComponent } from './Pages/error-page/error-page.component';
-import { MaterialModule } from './Modules/material/material.module';
-import { TimerComponent } from './timer/timer/timer.component';
-import { CreateTimerComponent } from './timer/create-timer/create-timer.component';
+import { MaterialModule } from './Modules/material.module';
+import { TimerComponent } from './Components/timer/timer.component';
+import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
 import { TimerService } from './timer.service';
 
 
