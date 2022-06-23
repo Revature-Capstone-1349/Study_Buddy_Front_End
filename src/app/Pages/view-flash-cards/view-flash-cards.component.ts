@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { ViewFlashCardsDialogComponent } from '../view-flash-cards-dialog/view-flash-cards-dialog.component';
+
+export class IDialogData{
+  constructor(
+  definitionData: string
+  )
+  {}
+}
 
 @Component({
   selector: 'app-view-flash-cards',
@@ -7,8 +16,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewFlashCardsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+  
+  openDialog(): void {
+    // this.dialog.open<string>(ViewFlashCardsDialogComponent)
+    // let def = new IDialogData("Definition Data")
+    const dialog = this.dialog.open(ViewFlashCardsDialogComponent,{
+      data : "Testing"
+    })
+  }
 
+  
   ngOnInit(): void {
   }
 

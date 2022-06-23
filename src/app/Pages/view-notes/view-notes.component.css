@@ -6,6 +6,7 @@ mat-card{
     margin: 10px;
 }
 
-mat-card-actions button{
+ mat-card-actions button{
     margin: 10px;
-}
+   align-content: center;
+} 

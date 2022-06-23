@@ -8,6 +8,8 @@ align-items: right;
 box-shadow: 10px 10px black;
 }
 
-button{
-    width: 100%;
+.d-flex.flex-row button{
+    margin: 10px;
+    text-align: center;
+    padding: auto;
 }
