@@ -13,6 +13,9 @@ import { MaterialModule } from './Modules/material/material.module';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { HomePageComponent } from './Pages/home-page/home-page.component';
+import { ErrorPageComponent } from './Pages/error-page/error-page.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeaderComponent,
+    HomePageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

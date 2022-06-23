@@ -7,11 +7,11 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isLogged : boolean = false;
+  logger: boolean = true;
   constructor(private cookie: CookieService) { }
 
   ngOnInit(): void {
-    this.isLogged = this.cookie.check("userId")
+    this.logger = this.cookie.check("userId")
   }
 
   // onCartClk(){

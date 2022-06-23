@@ -1,59 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Revature Study Buddy</a>
-    <button 
-        class="navbar-toggler" 
-        type="button"  
-        data-toggle="collapse" 
-        data-target="#navbarSupportedContent" 
-        aria-controls="navbarSupportedContent" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div 
-        class="collapse navbar-collapse" 
-        id="navbarSupportedContent">
-        <ul class="navbar-nav mr-active">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/menu">Menu</a>
-            </li>
-            <!--  drop down for togglable menu
-            <li class="nav-item dropdown">
-                <a class="nav-link btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item nav-item" routerLink="#">Full Menu</a>
-                    <a class="dropdown-item nav-item" routerLink="#">Lunch</a>
-                    <a class="dropdown-item nav-item" routerLink="#">Dinner</a>
-                    <a class="dropdown-item nav-item" routerLink="#">Drink</a>
-                    <a class="dropdown-item nav-item" routerLink="#">Dessert</a>
-                </div>
-            </li>
-            -->
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="isLogged" routerLink="/history">Order History</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="isLogged" routerLink="/profile">Profile</a>
-            </li>
-            <li class="nav-item">
-                <!-- <button class="btn btn-dark" (click)="onCartClk()" *ngIf="isLogged">Cart</button> -->
-                <a class="nav-link" *ngIf="isLogged" routerLink="/cart">Cart</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="!isLogged" routerLink="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="!isLogged" routerLink="/register">Register</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" *ngIf="isLogged" routerLink="/logout">Logout</a>
-            </li>
-        </ul>
+<mat-toolbar color="primary" class="row justify-content-between">
+    <div class="col d-flex">
+        <div class='pt-1'>
+            <span class="logo-revature">Revature StudyBudy</span>
+        </div>
+        
+        <a class="ml-2"
+        mat-raised-button
+        color="primary"
+        routerLink="home"
+        routerLinkActive="mat-accent"
+        [routerLinkActiveOptions]="{ exact: true }"
+        *ngIf="!logger"
+        >Login <mat-icon color="basic">login</mat-icon></a>
     </div>
-</nav>
+    
+    
+<!-- <div class="justify-content-end" *ngIf="logger"> -->
+    <!-- <div class="float-left pr-3" color="accent">Hello, {{ user.name }}</div> -->
+
+    <div>
+    <button
+        class="justify-content-end"
+        mat-raised-button
+        color="primary"
+        [matMenuTriggerFor]="menu"
+>
+
+    <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink="dashboard" class="px-2">Dashboard</a>
+        <mat-divider></mat-divider>
+        <a mat-menu-item routerLink="profile" class="px-2">Profile</a>
+        <mat-divider></mat-divider>
+        <a mat-menu-item href="/logout" class="px-2">Logout</a>
+    </mat-menu>
+</div>
+ 
+
+</mat-toolbar>
