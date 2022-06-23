@@ -11,5 +11,5 @@ export class AddFlashCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//function for adding flash card
 }

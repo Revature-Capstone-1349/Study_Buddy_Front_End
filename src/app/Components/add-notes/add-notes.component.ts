@@ -12,5 +12,5 @@ export class AddNotesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//Add a onclick function for creating the note
 }
