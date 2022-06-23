@@ -5,13 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './Modules/material/material.module';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MaterialModule,
     FormsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
