@@ -1,0 +1,17 @@
+mat-toolbar {
+    background-color: rgba(242, 105, 38);
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.logo-revature {
+    font-size:x-large;
+    color: var(--accent-color);
+}
+
+.logo-studyb {
+    font-size:x-large;
+    color:  white;   
+    padding-right: 10px;
+}
