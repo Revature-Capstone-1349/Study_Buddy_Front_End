@@ -14,11 +14,11 @@ export class TimerService {
   public seconds : number= 0;
   
   public studyHours: number = 0;
-  public studyMinutes: number = 0;
+  public studyMinutes: number = 50;
   public studySeconds : number= 0;
 
   public breakHours: number = 0;
-  public breakMinutes: number = 0;
+  public breakMinutes: number = 10;
   public breakSeconds : number= 0; 
 
   private timer: any; 
@@ -29,6 +29,10 @@ export class TimerService {
   public animate: boolean = false;
 
   constructor(public _snackBar: MatSnackBar){
+  }
+
+  setTimer(hours: number, minutes: number, seconds: number) {
+    this.hours = hours;
   }
 
   increment(type: 'H' | 'M' | 'S') {

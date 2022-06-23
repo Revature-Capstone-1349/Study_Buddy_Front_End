@@ -1,33 +1,23 @@
-    <mat-card class="m-2 w-50">
-     <div class="B">
-          <div class="content-h">
-            <div class="time" title="Hour(s)">{{ timerService.hours | number:'2.0'}}<span>:</span></div>
-            <div class="content-btn" *ngIf="timerService.show">
+<mat-card class="w-100">
+  <div class="container text-center">
+
+    <span title="Hour(s)">{{ timerService.hours | number:'2.0'}}:</span>
+    <!-- <div class="content-btn" *ngIf="timerService.show">
               <span (click)="timerService.increment('H')">+</span>
               <span (click)="timerService.decrement('H')">-</span>
-            </div>
-          </div>
-    
-          <div class="content-m">
-            <div  class="time" title="minute(s)">{{ timerService.minutes | number:'2.0'}}<span>:</span></div>
-            <div class="content-btn" class="content-btn" *ngIf="timerService.show">
+            </div> -->
+    <span title="minute(s)">{{ timerService.minutes | number:'2.0'}}:</span>
+    <!-- <div class="content-btn" class="content-btn" *ngIf="timerService.show">
               <span (click)="timerService.increment('M')">+</span>
               <span (click)="timerService.decrement('M')">-</span>
-            </div>
-          </div>
-    
-          <div class="content-s">
-            <div class="time" title="Second(s)">{{ timerService.seconds | number:'2.0'}}<span></span></div>
-            <div class="content-btn" class="content-btn" *ngIf="timerService.show">
-              <span (click)="timerService.increment('S')">+</span>
-              <span  (click)="timerService.decrement('S')">-</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-btn-action">
-          <button mat-button color="primary" (click)="timerService.start()" [disabled]="timerService.disabled">&#9658;</button>
-          <button mat-button color="primary" (click)="timerService.stop()">&#9724;</button>
-          <button mat-button color="primary" (click)="timerService.reset()">&#8635;</button>
-        </div>
-      </mat-card>
+            </div> -->
+    <span title="Second(s)">{{ timerService.seconds | number:'2.0'}}</span>
+    <button mat-button color="primary" (click)="">Edit</button>
+  </div>
+  <div class="text-center">
+    <button mat-button color="primary" (click)="timerService.start()"
+      [disabled]="timerService.disabled">&#9658;</button>
+    <button mat-button color="primary" (click)="timerService.stop()">&#9724;</button>
+    <button mat-button color="primary" (click)="timerService.reset()">&#8635;</button>
+  </div>
+</mat-card>
