@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-add-notes',
@@ -11,5 +12,9 @@ export class AddNotesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//Add a onclick function for creating the note
+onSubmitHandler(formData:any){
+  console.log("Form was submitted");
+  console.log(formData);
+}
 }

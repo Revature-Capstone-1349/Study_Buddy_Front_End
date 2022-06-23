@@ -1,1 +1,60 @@
-<p>view-notes works!</p>
+<!-- The view notes page will be a page that is made up of cards
+     that contain the note data.
+    These cards must contain buttons for deleting and editing the notes -->
+
+<!-- This page should also contain a button for making generic notes -->
+<div class="container">
+
+<!-- Use ngFor loop to auto fill data -->
+<!-- What you see below is a templete for the ngFor -->
+
+    <div class="row">
+        <div class="col-lg-4">
+        <form #edditNote = "ngForm" (ngSubmit)="ngSubmitHandler()">
+        <mat-card class="example-card">
+            <div class="row">
+                <div class="col-lg-9">
+                    <mat-form-field *ngIf="editModeOn">
+                        <input type="text" name="category" #category = "ngModel" [(ngModel)] = "noteContent.category" matInput>
+                    </mat-form-field>
+
+                    <mat-card-title *ngIf="!editModeOn">{{noteContent.category}}</mat-card-title>
+
+                    <mat-form-field *ngIf="editModeOn">
+                        <input type="text" name="title"  #title = "ngModel" [(ngModel)] = "noteContent.title" matInput>
+                    </mat-form-field>
+
+                    <mat-card-title *ngIf="!editModeOn">{{noteContent.title}}</mat-card-title>
+                </div>
+                <div class="col-lg-3">
+                    <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+                </div>
+            </div>
+            <mat-card-content>
+                    <mat-form-field *ngIf="editModeOn">
+                        <textarea name="" id="" cols="30" rows="1" name="text-area" matInput 
+                        ngModel #content="ngModel" [(ngModel)]="noteContent.content" required></textarea>
+                    </mat-form-field>
+               <p *ngIf="!editModeOn">{{noteContent.content}}</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+                <button mat-mini-fab color="primary" aria-label="Edit Button" (click)="ToggleEdit()" *ngIf="!editModeOn">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" aria-label="Edit Button" (click)="ToggleEdit()" *ngIf="editModeOn">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" aria-label="Save Button" type="submit" *ngIf="editModeOn">
+                    <mat-icon>save</mat-icon>
+                </button>
+            </mat-card-actions>
+            <mat-card-footer>
+
+            </mat-card-footer>
+            </mat-card>
+        </form>
+    </div>
+
+</div>  
+</div>

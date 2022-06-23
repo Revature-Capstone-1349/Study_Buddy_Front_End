@@ -1,1 +1,36 @@
-<p>view-flash-cards works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-4">
+        <mat-card class="example-card">
+            <div class="row">
+                <div class="col-lg-9">
+                
+                    <mat-card-subtitle>Sub-Category</mat-card-subtitle>
+                    <mat-card-title>Flash Card Title</mat-card-title>
+                </div>
+                <div class="col-lg-3">
+                    <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+                </div>
+            </div>
+            <mat-divider inset></mat-divider>
+            <mat-card-content>
+                <br>
+               <mat-card-title>Term</mat-card-title>
+               <br>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+                <button mat-mini-fab color="primary" (click)="openDialog()" aria-label="Save Button">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </mat-card-actions>
+            <mat-card-footer>
+
+            </mat-card-footer>
+            </mat-card>
+    </div>
+
+</div>
+
+</div>
