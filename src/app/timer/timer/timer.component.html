@@ -1,1 +1,36 @@
-<p>timer works!</p>
+<mat-card>
+    <div id="A">
+     <div class="B">
+          <div class="content-h">
+            <div class="time">{{ hours | number:'2.0'}}<span>h</span></div>
+            <div class="content-btn" *ngIf="show">
+              <span (click)="increment('H')">+</span>
+              <span (click)="decrement('H')">-</span>
+            </div>
+          </div>
+    
+          <div class="content-m">
+            <div  class="time">{{ minutes | number:'2.0'}}<span>m</span></div>
+            <div class="content-btn" class="content-btn" *ngIf="show">
+              <span (click)="increment('M')">+</span>
+              <span (click)="decrement('M')">-</span>
+            </div>
+          </div>
+    
+          <div class="content-s">
+            <div class="time">{{seconds | number:'2.0'}}<span>s</span></div>
+            <div class="content-btn" class="content-btn" *ngIf="show">
+              <span (click)="increment('S')">+</span>
+              <span  (click)="decrement('S')">-</span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="content-btn-action">
+          <button type="button" (click)="start()" [disabled]="disabled">&#9658;</button>
+          <button type="button" (click)="stop()">&#9724;</button>
+          <button type="button" (click)="reset()">&#8635;</button>
+        </div>
+    
+      </div>
+    </mat-card>

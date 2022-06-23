@@ -1,0 +1,65 @@
+
+#A{
+    border: 1px gray solid;
+    background-color: whitesmokes;
+    width: 15rem;
+    height: auto;
+    border-radius:0.5rem;
+   }
+   .B{
+   
+    
+       display: flex; 
+       justify-content: center;
+       height: 3rem;
+       
+   }
+   
+   .msm{
+     font-size: 130px;
+     
+    
+   }
+   /* tamano del los numeros  */
+       .content-h,
+       .content-m,
+       .content-s {
+         width: 16rem;
+         height: 10rem;}
+         .time {
+           font-size: 20px;
+           text-align: center;
+           font-weight: 300;
+           color: color-white;}
+   
+           span {
+               font-size: 15px;
+               font-weight: 500;
+               color: color-magenta;
+               margin:  3px;
+             }
+         
+             .content-btn {
+           
+               text-align: center;
+               }
+         
+               button {
+                 font-size: 10px;
+                 width: 3rem;
+                 margin:  1px;
+                 border-radius: 10px;
+                 border: none;
+                 outline: inherit;
+                 color: color-magenta;
+                 background: color-black;
+                 
+         
+               }
+   
+               .content-btn-action {
+                   display: flex;
+                   justify-content: center;
+                   margin-top: 0rem;
+                   padding-bottom: 1rem;}
+         
