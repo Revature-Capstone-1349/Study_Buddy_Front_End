@@ -1,8 +1,7 @@
 export class flashcards{
     constructor(
-        public title?:string,
-        public category?:string,
-        public content?:string,
+        public term?:string,
+        public definition?:string,
         public setId?: number
     ){}
 }

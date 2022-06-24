@@ -8,20 +8,58 @@ import { notes } from 'src/app/Model/notes';
 })
 export class ViewNotesComponent implements OnInit {
 
-  noteContent = new notes("Title", "Category", "Content");
+
+  noteList : notes[] = [
+    new notes("Title", "Category", "Content"),
+    new notes("Title2", "Category2", "Content2"),
+    new notes("Title3", "Category3", "Content3"),
+    new notes("Title4", "Category4", "Content4"),
+    new notes("Title5", "Category5", "Content5"),
+    new notes("Title6", "Category6", "Content6"),
+    new notes("Title7", "Category7", "Content7"),
+    new notes("Title8", "Category8", "Content8")
+  ]
+  noteEditList : notes[] = [
+    new notes("Title", "Category", "Content"),
+    new notes("Title2", "Category2", "Content2"),
+    new notes("Title3", "Category3", "Content3"),
+    new notes("Title4", "Category4", "Content4"),
+    new notes("Title5", "Category5", "Content5"),
+    new notes("Title6", "Category6", "Content6"),
+    new notes("Title7", "Category7", "Content7"),
+    new notes("Title8", "Category8", "Content8")
+  ]
   editModeOn = false;
+  editList : boolean[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.noteList.forEach(element => {
+      this.editList.push(false)
+    });
   }
 
-  ToggleEdit(){
-    this.editModeOn = !this.editModeOn;
+  ToggleEdit(id:number){
+    // this.editModeOn = !this.editModeOn;
+    // console.log(this.editList)
+    this.editList[id] = !this.editList[id]
+    // console.log("Origin list " + this.noteList[id].category)
+
+    this.noteEditList[id].category = this.noteList[id].category
+    this.noteEditList[id].title = this.noteList[id].title
+    this.noteEditList[id].content = this.noteList[id].content
+    
+    // console.log("Edit list " + this.noteEditList[id].category)  
   }
 
-  ngSubmitHandler(){
-    console.log(this.noteContent)
+  ngSubmitHandler(i:number){
+    console.log(this.noteList[i])
+    this.noteList[i].category = this.noteEditList[i].category
+    this.noteList[i].content = this.noteEditList[i].content
+    this.noteList[i].title = this.noteEditList[i].title
   }
+
+  
 
 }

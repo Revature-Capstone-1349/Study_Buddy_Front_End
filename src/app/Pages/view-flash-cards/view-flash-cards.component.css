@@ -14,3 +14,9 @@ mat-card-actions button{
 mat-card-footer{
     align-items: end;
 }
+.terms{
+    text-align: center;
+    padding: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

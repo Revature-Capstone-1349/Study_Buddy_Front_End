@@ -10,46 +10,46 @@
 <!-- What you see below is a templete for the ngFor -->
 
     <div class="row">
-        <div class="col-lg-4">
-        <form #edditNote = "ngForm" (ngSubmit)="ngSubmitHandler()">
+        <div class="col-lg-4" *ngFor="let note of noteList; index as i">
+        <form #edditNote = "ngForm" (ngSubmit)="ngSubmitHandler(i)">
         <mat-card class="example-card">
             <div class="row">
                 <div class="col-lg-9">
-                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
-                        <input type="text" class="form-control" name="category" #category = "ngModel" [(ngModel)] = "noteContent.category" matInput>
+                    <mat-form-field *ngIf="editList[i]" floatLabel="never">
+                        <input type="text" class="form-control" name="category" #category = "ngModel" [(ngModel)] = "noteEditList[i].category" matInput>
                     </mat-form-field>
 
-                    <mat-card-title *ngIf="!editModeOn">{{noteContent.category}}</mat-card-title>
+                    <mat-card-title *ngIf="!editList[i]">{{noteList[i].category}}</mat-card-title>
 
-                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
-                        <input type="text" class="form-control" name="title"  #title = "ngModel" [(ngModel)] = "noteContent.title" matInput>
+                    <mat-form-field *ngIf="editList[i]" floatLabel="never">
+                        <input type="text" class="form-control" name="title"  #title = "ngModel" [(ngModel)] = "noteEditList[i].title" matInput>
                     </mat-form-field>
 
-                    <mat-card-title *ngIf="!editModeOn">{{noteContent.title}}</mat-card-title>
+                    <mat-card-title *ngIf="!editList[i]">{{noteList[i].title}}</mat-card-title>
                 </div>
                 <div class="col-lg-3">
-                    <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+                    <button mat-mini-fab color="warn" type="button"><mat-icon>delete</mat-icon></button>
                 </div>
             </div>
             <br/>
             <mat-divider></mat-divider>
             <br/>
             <mat-card-content>
-                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
+                    <mat-form-field *ngIf="editList[i]" floatLabel="never">
                         <textarea id="" class="form-control" cols="30" rows="1" name="content" matInput 
-                        ngModel #content="ngModel" [(ngModel)]="noteContent.content" required></textarea>
+                        ngModel #content="ngModel" [(ngModel)]="noteEditList[i].content" required></textarea>
                     </mat-form-field>
-               <p *ngIf="!editModeOn">{{noteContent.content}}</p>
+               <p *ngIf="!editList[i]">{{noteList[i].content}}</p>
             </mat-card-content>
             <mat-divider inset></mat-divider>
             <mat-card-actions>
-                <button mat-mini-fab color="primary" aria-label="Edit Button" (click)="ToggleEdit()" *ngIf="!editModeOn">
+                <button mat-mini-fab color="primary" type="button" aria-label="Edit Button" (click)="ToggleEdit(i)" *ngIf="!editList[i]">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-mini-fab color="primary" aria-label="Edit Button" (click)="ToggleEdit()" *ngIf="editModeOn">
+                <button mat-mini-fab color="primary" type="button" aria-label="Edit Button" (click)="ToggleEdit(i)" *ngIf="editList[i]">
                     <mat-icon>close</mat-icon>
                 </button>
-                <button mat-mini-fab color="primary" aria-label="Save Button" type="submit" *ngIf="editModeOn">
+                <button mat-mini-fab color="primary" aria-label="Save Button" type="submit" *ngIf="editList[i]">
                     <mat-icon>save</mat-icon>
                 </button>
             </mat-card-actions>
