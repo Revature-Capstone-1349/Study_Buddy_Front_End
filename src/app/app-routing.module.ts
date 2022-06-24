@@ -6,6 +6,8 @@ import { LoginComponent } from "./Components/login/login.component";
 import { RegisterComponent } from "./Components/register/register.component";
 import { ErrorPageComponent } from "./Pages/error-page/error-page.component";
 import { HomePageComponent } from "./Pages/home-page/home-page.component";
+import { ViewNotesComponent } from './Pages/view-notes/view-notes.component';
+import { ViewFlashCardsComponent } from './Pages/view-flash-cards/view-flash-cards.component';
 
 
 
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'timer', component: TimerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'notes', component: ViewNotesComponent },
+  { path: 'flashCards', component: ViewFlashCardsComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: ErrorPageComponent }
 ];
