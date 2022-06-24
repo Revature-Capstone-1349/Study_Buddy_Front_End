@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <!-- The view notes page will be a page that is made up of cards
      that contain the note data.
     These cards must contain buttons for deleting and editing the notes -->
@@ -14,14 +15,14 @@
         <mat-card class="example-card">
             <div class="row">
                 <div class="col-lg-9">
-                    <mat-form-field *ngIf="editModeOn">
-                        <input type="text" name="category" #category = "ngModel" [(ngModel)] = "noteContent.category" matInput>
+                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
+                        <input type="text" class="form-control" name="category" #category = "ngModel" [(ngModel)] = "noteContent.category" matInput>
                     </mat-form-field>
 
                     <mat-card-title *ngIf="!editModeOn">{{noteContent.category}}</mat-card-title>
 
-                    <mat-form-field *ngIf="editModeOn">
-                        <input type="text" name="title"  #title = "ngModel" [(ngModel)] = "noteContent.title" matInput>
+                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
+                        <input type="text" class="form-control" name="title"  #title = "ngModel" [(ngModel)] = "noteContent.title" matInput>
                     </mat-form-field>
 
                     <mat-card-title *ngIf="!editModeOn">{{noteContent.title}}</mat-card-title>
@@ -30,9 +31,12 @@
                     <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
                 </div>
             </div>
+            <br/>
+            <mat-divider></mat-divider>
+            <br/>
             <mat-card-content>
-                    <mat-form-field *ngIf="editModeOn">
-                        <textarea name="" id="" cols="30" rows="1" name="text-area" matInput 
+                    <mat-form-field *ngIf="editModeOn" floatLabel="never">
+                        <textarea id="" class="form-control" cols="30" rows="1" name="content" matInput 
                         ngModel #content="ngModel" [(ngModel)]="noteContent.content" required></textarea>
                     </mat-form-field>
                <p *ngIf="!editModeOn">{{noteContent.content}}</p>
