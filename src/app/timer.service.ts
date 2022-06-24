@@ -116,6 +116,4 @@ export class TimerService {
     this.seconds = 0;
     this.stop();
   }
-
-  
 }
