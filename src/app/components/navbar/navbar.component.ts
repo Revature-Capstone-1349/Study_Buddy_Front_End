@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { SessionsService } from 'src/app/Service/sessions.service';
+import { Router } from '@angular/router';
+import { HttpBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -7,27 +10,28 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  logger: boolean = true;
-  constructor(private cookie: CookieService) { }
+
+  user: any;
+  logger: boolean = false;
+  call = this.checkLogger();
+
+  constructor(private sessionService: SessionsService) { }
+            
+
 
   ngOnInit(): void {
-    this.logger = this.cookie.check("userId")
+    this.checkLogger()
   }
 
-  // onCartClk(){
-  //   //console.log("works")
-  //   if(this.cookie.check("CartDisplay")){
-  //     if(this.cookie.get("CartDisplay") == "true"){
-  //       this.cookie.set("CartDisplay", "false");
-  //     }
-  //     else{
-  //       this.cookie.set("CartDisplay", "true");
-  //       }
-  //   }
-  //   else{
-  //     this.cookie.set("CartDisplay", "false")
-  //   }
-  //    console.log(this.cookie.get("CartDisplay"))
-  // }
+  checkLogger(){
+    if(this.sessionService.checkLoggedInActive()){
+      this.user = this.sessionService.getSession("userAccount")
+    }else
+    this.logger = false
+  }
 
+  onClickLogout(){
+    this.sessionService.logout();
+  }
+  
 }

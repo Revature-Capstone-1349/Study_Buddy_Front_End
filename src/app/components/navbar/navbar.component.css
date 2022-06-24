@@ -1,4 +1,5 @@
 mat-toolbar {
+    color: rgba(242, 105, 38);
     background-color: rgba(242, 105, 38);
     width: 100%;
     justify-content: space-between;
@@ -6,13 +7,15 @@ mat-toolbar {
 }
 
 
+
 .logo-revature {
     font-size:x-large;
     color: var(--accent-color);
 }
 
-.logo-studyb {
-    font-size:x-large;
-    color:  white;   
-    padding-right: 10px;
-}
+a{
+    color:rgba(242, 105, 38);
+    text-decoration: none;
+    font-family: 'FuturaBold'
+    
+};
