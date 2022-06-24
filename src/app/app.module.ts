@@ -17,16 +17,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ErrorPageComponent } from './Pages/error-page/error-page.component';
-<<<<<<< HEAD
 import { BodyComponent } from './Components/body/body.component';
-=======
-import { MaterialModule } from './Modules/material.module';
-import { TimerComponent } from './Components/timer/timer.component';
-import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
-import { TimerService } from './timer.service';
-import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
-
->>>>>>> 9b0c249936fe2c6f8c970085e9848bdbe3e12b68
 
 
 @NgModule({
