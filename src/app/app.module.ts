@@ -21,6 +21,7 @@ import { MaterialModule } from './Modules/material.module';
 import { TimerComponent } from './Components/timer/timer.component';
 import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
 import { TimerService } from './timer.service';
+import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
 
 
 
@@ -38,7 +39,8 @@ import { TimerService } from './timer.service';
     NavbarComponent,
     HeaderComponent,
     HomePageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ViewFlashCardsDialogComponent
   ],
   imports: [
     BrowserModule,
