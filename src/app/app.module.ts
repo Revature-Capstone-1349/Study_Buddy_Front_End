@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddNotesComponent } from './Components/add-notes/add-notes.component';
@@ -18,6 +19,12 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ErrorPageComponent } from './Pages/error-page/error-page.component';
 import { BodyComponent } from './Components/body/body.component';
+import { TimerComponent } from './Components/timer/timer.component';
+import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
+import { TimerService } from './timer.service';
+import { MaterialModule } from './Modules/material.module';
+import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
+
 
 
 @NgModule({
@@ -35,11 +42,9 @@ import { BodyComponent } from './Components/body/body.component';
     HeaderComponent,
     HomePageComponent,
     ErrorPageComponent,
-<<<<<<< HEAD
-    BodyComponent
-=======
+    BodyComponent,
     ViewFlashCardsDialogComponent
->>>>>>> 9b0c249936fe2c6f8c970085e9848bdbe3e12b68
+
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ import { BodyComponent } from './Components/body/body.component';
     FormsModule,
     MatIconModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [CookieService,TimerService],
   bootstrap: [AppComponent]
