@@ -3,6 +3,7 @@ mat-toolbar {
     background-color: rgba(242, 105, 38);
     width: 100%;
     justify-content: space-between;
+    margin: 0;
 }
 
 
