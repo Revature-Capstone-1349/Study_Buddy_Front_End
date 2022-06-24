@@ -7,9 +7,9 @@
         
         <a class="ml-2"
         mat-raised-button
-        color="mat-accent"
+        color="accent"
         routerLink="/login"
-        routerLinkActive="accent"
+        routerLinkActive="mat-accent"
         [routerLinkActiveOptions]="{ exact: true }"
         *ngIf="!logger"
         >Login <mat-icon color="basic">login</mat-icon></a>
@@ -28,13 +28,16 @@
     <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <a mat-menu-item routerLink="dashboard" class="px-2">Dashboard</a>
+        <a mat-menu-item routerLink="/dashboard" class="px-2">Dashboard</a>
         <mat-divider></mat-divider>
-        <a mat-menu-item routerLink="profile" class="px-2">Profile</a>
+        <a mat-menu-item routerLink="/profile" class="px-2">Profile</a>
+        <mat-divider></mat-divider>
+        <a mat-menu-item routerLink="/notes" class="px-2">Notes</a>
+        <mat-divider></mat-divider>
+        <a mat-menu-item routerLink="/flashCards" class="px-2">Flash Cards</a>
         <mat-divider></mat-divider>
         <a mat-menu-item href="/logout" class="px-2">Logout</a>
     </mat-menu>
 </div>
- 
 
 </mat-toolbar>
