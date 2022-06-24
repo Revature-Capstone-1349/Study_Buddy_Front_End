@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class TimerService {
 
+  public title = "Study Timer";
+
   private break: boolean = false;
   
   public hours: number = 0;
@@ -94,12 +96,14 @@ export class TimerService {
     if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
         this.break === false) {
         this.break = true;
+        this.title = "Snack Break";
         this.setTimer(this.breakHours, this.breakMinutes, this.breakSeconds);
         this._snackBar.open("You've made it to break time", "Enjoy!");
         this.start();
     } else if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
         this.break === true) {
         this.break = false;
+        this.title = "Study Timer";
         this._snackBar.open("Break is over, lets continue", "You can do it!");
         this.setTimer(this.studyHours, this.studyMinutes, this.studySeconds);
         this.start();

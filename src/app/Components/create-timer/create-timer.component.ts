@@ -35,7 +35,13 @@ export class CreateTimerComponent implements OnInit {
     (this.timerService.studySeconds > 59 )? this.timerService.studySeconds = 59 : "";
     (this.timerService.breakHours > 59 )? this.timerService.breakHours = 59 : "";
     (this.timerService.breakMinutes > 59 )? this.timerService.breakMinutes = 59 : "";
-    (this.timerService.breakSeconds > 59 )? this.timerService.breakSeconds = 59 : "";
+    (this.timerService.breakSeconds > 59 )? this.timerService.breakSeconds = 59 : "";    
+    (this.timerService.studyHours < 0 )? this.timerService.studyHours = 0 : "";
+    (this.timerService.studyMinutes < 0 )? this.timerService.studyMinutes = 0 : "";
+    (this.timerService.studySeconds < 0 )? this.timerService.studySeconds = 0 : "";
+    (this.timerService.breakHours < 0 )? this.timerService.breakHours = 0 : "";
+    (this.timerService.breakMinutes < 0 )? this.timerService.breakMinutes = 0 : "";
+    (this.timerService.breakSeconds < 0 )? this.timerService.breakSeconds = 0 : "";
     this.timerService.setTimer(this.timerService.studyHours, this.timerService.studyMinutes, this.timerService.studySeconds)
     this.dialogRef.close();
    }

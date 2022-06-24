@@ -27,5 +27,5 @@
         <mat-label>Seconds</mat-label>
         <input matInput type="number" min="0" max="59" [(ngModel)]="timerService.breakSeconds" value="{{ [timerService.breakSeconds] }}">
     </mat-form-field><br>
-    <button color=""mat-button color="primary" (click)="createTimer()">Save</button>
+    <button mat-raised-button color="primary" (click)="createTimer()">Save</button>
 </mat-card>

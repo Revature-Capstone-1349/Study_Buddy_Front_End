@@ -1,11 +1,13 @@
-<mat-card class="w-100 text-center">
-    <span title="Hour(s)" style="color:accent">{{ timerService.hours | number:'2.0'}}:</span>
-    <span title="minute(s)" color="primary">{{ timerService.minutes | number:'2.0'}}:</span>
-    <span title="Second(s)" color="primary">{{ timerService.seconds | number:'2.0'}}</span>
+
+<mat-card class="w-100 text-center p-0">
+  <mat-card class="title text-center p-0 mb-2">{{ timerService.title }}</mat-card>
+    <span title="Hour(s)">{{ timerService.hours | number:'2.0'}}:</span>
+    <span title="minute(s)">{{ timerService.minutes | number:'2.0'}}:</span>
+    <span title="Second(s)">{{ timerService.seconds | number:'2.0'}}</span>
   <div class="text-center">
-    <button mat-button color="primary" (click)="timerService.start()"
+    <button mat-button (click)="timerService.start()"
       [disabled]="timerService.disabled" title="Play" alt="Play"><mat-icon>play_arrow</mat-icon></button>
-    <button mat-button color="primary" title="Stop" alt="Stop"(click)="timerService.stop()"><mat-icon>stop</mat-icon></button>
-    <button mat-button color="primary" title="Timer Setting" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
+    <button mat-button title="Stop" alt="Stop"(click)="timerService.stop()"><mat-icon>stop</mat-icon></button>
+    <button mat-button title="Timer Setting" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
   </div>
 </mat-card>
