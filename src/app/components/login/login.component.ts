@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpBackend } from '@angular/common/http';
-import { User } from 'src/app/Models/user';
-import { AuthService } from 'src/app/Services/auth.service';
+import { User } from 'src/app/Model/user';
+import { AuthService } from 'src/app/Service/auth.service';
 
 
 @Component({
