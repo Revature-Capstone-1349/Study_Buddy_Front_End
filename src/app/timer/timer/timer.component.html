@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:src/app/timer/timer/timer.component.html
 <mat-card class="w-100">
   <div class="container text-center">
 
@@ -14,10 +15,16 @@
     <span title="Second(s)">{{ timerService.seconds | number:'2.0'}}</span>
     <button mat-button color="primary" (click)="">Edit</button>
   </div>
+=======
+<mat-card class="w-100 text-center">
+    <span title="Hour(s)" style="color:accent">{{ timerService.hours | number:'2.0'}}:</span>
+    <span title="minute(s)" color="primary">{{ timerService.minutes | number:'2.0'}}:</span>
+    <span title="Second(s)" color="primary">{{ timerService.seconds | number:'2.0'}}</span>
+>>>>>>> Stashed changes:src/app/Components/timer/timer.component.html
   <div class="text-center">
     <button mat-button color="primary" (click)="timerService.start()"
-      [disabled]="timerService.disabled">&#9658;</button>
-    <button mat-button color="primary" (click)="timerService.stop()">&#9724;</button>
-    <button mat-button color="primary" (click)="timerService.reset()">&#8635;</button>
+      [disabled]="timerService.disabled" title="Play" alt="Play"><mat-icon>play_arrow</mat-icon></button>
+    <button mat-button color="primary" title="Stop" alt="Stop"(click)="timerService.stop()"><mat-icon>stop</mat-icon></button>
+    <button mat-button color="primary" title="Timer Setting" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
   </div>
 </mat-card>
