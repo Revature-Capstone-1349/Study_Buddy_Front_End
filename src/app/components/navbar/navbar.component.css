@@ -12,3 +12,9 @@ mat-toolbar {
     color: var(--accent-color);
 }
 
+a{
+    color:rgba(242, 105, 38);
+    text-decoration: none;
+    font-family: 'FuturaBold'
+    
+};
