@@ -1,8 +1,10 @@
 mat-toolbar {
+    color: rgba(242, 105, 38);
     background-color: rgba(242, 105, 38);
     width: 100%;
     justify-content: space-between;
 }
+
 
 
 .logo-revature {
@@ -10,8 +12,3 @@ mat-toolbar {
     color: var(--accent-color);
 }
 
-.logo-studyb {
-    font-size:x-large;
-    color:  white;   
-    padding-right: 10px;
-}
