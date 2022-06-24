@@ -17,13 +17,19 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ErrorPageComponent } from './Pages/error-page/error-page.component';
-import { MaterialModule } from './Modules/material/material.module';
+import { MaterialModule } from './Modules/material.module';
+import { TimerComponent } from './Components/timer/timer.component';
+import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
+import { TimerService } from './timer.service';
+import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TimerComponent,
+    CreateTimerComponent,
     AddNotesComponent,
     AddFlashCardComponent,
     ViewNotesComponent,
@@ -33,19 +39,20 @@ import { MaterialModule } from './Modules/material/material.module';
     NavbarComponent,
     HeaderComponent,
     HomePageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ViewFlashCardsDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     MaterialModule,
+    AppRoutingModule,
     FormsModule,
     MatIconModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,TimerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
