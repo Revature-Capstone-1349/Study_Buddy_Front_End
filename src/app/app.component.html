@@ -1,8 +1,14 @@
-<!-- <a routerLink="timer" routerLinkActive="mat-accent">Timer comp</a><br> -->
-<!-- <a routerLink="creattimer" routerLinkActive="mat-accent">Create Timer comp</a> -->
-<router-outlet></router-outlet>
-<!-- <app-add-notes></app-add-notes> -->
-<!-- <app-add-flash-card></app-add-flash-card> -->
-<!-- <app-view-notes></app-view-notes> -->
-<!-- <app-view-flash-cards></app-view-flash-cards> -->
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
+<div class="row">
+<div class="col-lg-1"><!-- yep.. --></div>
+
+<div class="col-lg-8">
+    <div class="w-100 mt-2">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="w-100 mt-2" *ngIf="true"><!-- will need to hide component when logged out -->
+        <app-timer></app-timer></div> 
+    </div>
+</div>

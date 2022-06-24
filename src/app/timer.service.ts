@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class TimerService {
 
+  public title = "Study Timer";
+
   private break: boolean = false;
   
   public hours: number = 0;
@@ -33,44 +35,11 @@ export class TimerService {
 
   setTimer(hours: number, minutes: number, seconds: number) {
     this.hours = hours;
+    this.minutes = minutes;
+    this.seconds = seconds;
+    //(this.hours <= 0 || this.minutes <= 0 || this.seconds <= 0) ? this.disabled=true : this.disabled=false;
   }
 
-  increment(type: 'H' | 'M' | 'S') {
-    if (type === 'H') {
-      if (this.hours >= 99) return;
-      this.hours += 1;
-    }
-    else if (type === 'M') {
-      if (this.minutes >= 59) return;
-      this.minutes += 1;
-    }
-    else {
-      if (this.seconds >= 59) return;
-      this.seconds += 1;
-    }
-  }
-  decrement(type: 'H' | 'M' | 'S') {
-    if (type === 'H') {
-      if (this.hours <= 0) return;
-      this.hours -= 1;
-    }
-    else if (type === 'M') {
-      if (this.minutes <= 0) return;
-      this.minutes -= 1;
-    }
-    else {
-      if (this.seconds <= 0) return;
-      this.seconds -= 1;
-    }
-  }
-  /* getValues() {
-    this.date.setHours(this.hours);
-    this.date.setMinutes(this.minutes);
-    this.date.setSeconds(this.seconds);
-    this.date.setMilliseconds(0);     //init value 0
-    //console.log(this.date.getTime())
-  }
- */
   updateTimer() {
     this.date.setHours(this.hours);
     this.date.setMinutes(this.minutes);
@@ -127,18 +96,16 @@ export class TimerService {
     if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
         this.break === false) {
         this.break = true;
+        this.title = "Snack Break";
+        this.setTimer(this.breakHours, this.breakMinutes, this.breakSeconds);
         this._snackBar.open("You've made it to break time", "Enjoy!");
-        this.hours = this.breakHours;
-        this.minutes = this.breakMinutes;
-        this.seconds = this.breakSeconds;
         this.start();
     } else if (this.hours === 0 && this.minutes === 0 && this.seconds === 0 &&
         this.break === true) {
         this.break = false;
+        this.title = "Study Timer";
         this._snackBar.open("Break is over, lets continue", "You can do it!");
-        this.hours = this.studyHours;
-        this.minutes = this.studyMinutes;
-        this.seconds = this.studySeconds;
+        this.setTimer(this.studyHours, this.studyMinutes, this.studySeconds);
         this.start();
     }
   }
@@ -149,6 +116,4 @@ export class TimerService {
     this.seconds = 0;
     this.stop();
   }
-
-  
 }
