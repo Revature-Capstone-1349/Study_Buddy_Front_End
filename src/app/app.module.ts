@@ -16,6 +16,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ErrorPageComponent } from './Pages/error-page/error-page.component';
+import { BodyComponent } from './Components/body/body.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ErrorPageComponent } from './Pages/error-page/error-page.component';
     NavbarComponent,
     HeaderComponent,
     HomePageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
