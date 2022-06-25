@@ -10,6 +10,8 @@ import { CreateTimerComponent } from '../create-timer/create-timer.component';
 })
 export class TimerComponent implements OnInit {
 
+  showFiller = false;
+
   constructor(
     public timerService: TimerService,
     public dialog: MatDialog
