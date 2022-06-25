@@ -3,6 +3,7 @@ mat-toolbar {
     background-color: rgba(242, 105, 38);
     width: 100%;
     justify-content: space-between;
+    margin: 0;
 }
 
 
@@ -12,3 +13,9 @@ mat-toolbar {
     color: var(--accent-color);
 }
 
+a{
+    color:rgba(242, 105, 38);
+    text-decoration: none;
+    font-family: 'FuturaBold'
+    
+};

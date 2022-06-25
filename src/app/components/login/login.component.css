@@ -2,9 +2,13 @@ mat-card {
     max-width: 500px;
     margin: 1em auto;
     text-align: center;
+    font-family: 'FuturaBold';
 }
 
 mat-form-field {
     display: block;
 }
 
+button{
+    font-family: 'FuturaBook';
+}
