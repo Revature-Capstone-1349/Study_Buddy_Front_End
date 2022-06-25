@@ -11,7 +11,7 @@ export class TimerService {
 
   private break: boolean = false;
   
-  initTimer = new Time(0, 0, 0);
+  initTimer = new Time(0, 50, 0);
   studyTimer = new Time (0, 50, 0);
   breakTimer = new Time(0, 10, 0);
 
@@ -19,9 +19,14 @@ export class TimerService {
   private date = new Date();
 
   public disabled: boolean = false;
-  public animate: boolean = false;
+  //public animate: boolean = false;
 
   constructor(public _snackBar: MatSnackBar){
+  }
+
+  ngOnInit() {
+    (this.initTimer.hours === 0 && this.initTimer.minutes === 0 && this.initTimer.seconds === 0)? this.disabled = true : this.disabled = false;
+
   }
 
   setTimer(hours: number, minutes: number, seconds: number) {
@@ -45,7 +50,7 @@ export class TimerService {
       this.date.getSeconds() === 0) {
       clearInterval(this.timer); //stop interval
      
-      this.animate = true;
+      //this.animate = true;
       setTimeout(() => {
         this.stop();
       
@@ -69,7 +74,7 @@ export class TimerService {
  
   stop() {    
     this.disabled = false;
-    this.animate = false;
+    //this.animate = false;
     clearInterval(this.timer);
     this.breakTime();
   }

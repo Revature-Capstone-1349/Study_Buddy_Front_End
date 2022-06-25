@@ -9,7 +9,7 @@ import { CreateTimerComponent } from '../create-timer/create-timer.component';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-
+  break = false;
   showFiller = false;
 
   constructor(
