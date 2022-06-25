@@ -1,9 +1,9 @@
 
 <mat-card class="w-100 text-center p-0">
   <mat-card class="title text-center p-0 mb-2">{{ timerService.title }}</mat-card>
-    <span title="Hour(s)">{{ timerService.hours | number:'2.0'}}:</span>
-    <span title="minute(s)">{{ timerService.minutes | number:'2.0'}}:</span>
-    <span title="Second(s)">{{ timerService.seconds | number:'2.0'}}</span>
+    <span title="Hour(s)">{{ timerService.initTimer.getHours() | number:'2.0'}}:</span>
+    <span title="minute(s)">{{ timerService.initTimer.getMinutes() | number:'2.0'}}:</span>
+    <span title="Second(s)">{{ timerService.initTimer.getSeconds()| number:'2.0'}}</span>
   <div class="text-center">
     <button mat-button (click)="timerService.start()"
       [disabled]="timerService.disabled" title="Play" alt="Play"><mat-icon>play_arrow</mat-icon></button>
