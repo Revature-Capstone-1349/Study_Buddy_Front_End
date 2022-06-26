@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { flashcards } from 'src/app/Model/flashcards';
-import { ViewFlashCardsDialogComponent } from '../view-flash-cards-dialog/view-flash-cards-dialog.component';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 
 export class IDialogData{
   constructor(
@@ -27,7 +26,7 @@ export class ViewFlashCardsComponent implements OnInit {
     new flashcards("test6", "This is for testing")
   ]
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: Dialog) {}
   
   openDialog(): void {
     // this.dialog.open<string>(ViewFlashCardsDialogComponent)
@@ -36,13 +35,28 @@ export class ViewFlashCardsComponent implements OnInit {
       data : "Testing"
     })
   }
-
-
   
   ngOnInit(): void {
   }
 
+}
 
- 
+@Component({
+  selector: 'app-view-flash-cards-dialog',
+  templateUrl: './view-flash-cards-dialog.component.html',
+  styleUrls: ['./view-flash-cards-dialog.component.css']
+})
+export class ViewFlashCardsDialogComponent implements OnInit {
+
+  constructor(public dialogRef: DialogRef<ViewFlashCardsDialogComponent>, @Inject(DIALOG_DATA) public dialogData: any) {
+    console.log(dialogData)
+  }
+
+  ngOnInit(): void {
+  }
+
+   
+  
 
 }
+

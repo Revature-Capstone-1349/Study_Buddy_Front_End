@@ -82,14 +82,20 @@ export class TimerService {
         this.break = true;
         this.title = "Snack Break";
         this.setTimer(this.breakTimer.getHours(), this.breakTimer.getMinutes(), this.breakTimer.getSeconds());
-        this._snackBar.open("You've made it to break time", "Enjoy!");
+        this._snackBar.open("You've made it to break time", "Enjoy!",{
+          duration: 5000
+        });
+
         this.start();
     } else if (this.initTimer.getHours() === 0 && this.initTimer.getMinutes() === 0 && this.initTimer.getSeconds() === 0 &&
         this.break === true) {
         this.break = false;
         this.title = "Study Timer";
-        this._snackBar.open("Break is over, lets continue", "You can do it!");
         this.setTimer(this.studyTimer.getHours(), this.studyTimer.getMinutes(), this.studyTimer.getSeconds());
+        this._snackBar.open("Break is over, lets continue", "You can do it!", {
+          duration: 5000
+        });
+      
         this.start();
     }
   }
