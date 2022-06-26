@@ -23,13 +23,13 @@
 								class="form-control"
 								name="category"
 								#category="ngModel"
-								[(ngModel)]="noteEditList[i].category"
+								[(ngModel)]="noteEditList[i].cat"
 								matInput
 							/>
 						</mat-form-field>
 
 						<mat-card-title *ngIf="!editList[i]">{{
-							noteList[i].category
+							noteList[i].cat
 						}}</mat-card-title>
 						<br />
 						<mat-form-field *ngIf="editList[i]" floatLabel="never">
