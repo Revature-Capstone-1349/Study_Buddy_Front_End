@@ -2,12 +2,12 @@
 	<mat-card-content>
 		<mat-card-title>Login</mat-card-title>
 		<mat-card-subtitle>Enter Email and Password</mat-card-subtitle>
-		<form #loginForm="ngForm" (ngSubmit)="onSubmitHandler(loginForm.value)">
+		<form #loginForm="ngForm" (ngSubmit)="onSubmitHandler()">
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>Email</mat-label>
 				<input
 					matInput
-					ngModel
+					[(ngModel)]='user.email'
 					#email="ngModel"
 					name="email"
 					required
@@ -18,10 +18,10 @@
 				<mat-label>Password</mat-label>
 				<input
 					matInput
-					ngModel
+					[(ngModel)] = 'user.passwd'
 					#password="ngModel"
 					[type]="hidePass ? 'password' : 'text'"
-					name="password"
+					name="passwd"
 					minlength="6"
 					required
 					placeholder="Enter Password"

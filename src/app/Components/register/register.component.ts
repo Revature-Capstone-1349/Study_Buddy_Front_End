@@ -1,6 +1,5 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { User } from 'src/app/Model/user';
-import { AuthService } from 'src/app/Service/auth.service';
 import { UserDataService } from 'src/app/Service/user-data.service';
 // import { SessionsService } from 'src/app/services/sessions.service';
 // import { Router } from "@angular/router";
