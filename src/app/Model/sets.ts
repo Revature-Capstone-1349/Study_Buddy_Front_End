@@ -1,10 +1,9 @@
-export class notes{
+export class Sets{
     constructor(
-        public fcardid?:number,
+        public userId?: number,
+        public privacy?: string,
+        public setName?: string,
         public setId?: number,
-        public term?:string,
-        public def?:string,
-        public field?:string,
     ){}
 }
 

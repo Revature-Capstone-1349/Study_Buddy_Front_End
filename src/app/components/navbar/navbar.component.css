@@ -14,8 +14,6 @@ mat-toolbar {
 }
 
 a{
-    color:rgba(242, 105, 38);
+    color:#FF8F00;
     text-decoration: none;
-    font-family: 'FuturaBold'
-    
 };

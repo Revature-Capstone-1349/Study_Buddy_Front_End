@@ -54,10 +54,11 @@ export class ViewNotesComponent implements OnInit {
   }
 
   ngSubmitHandler(i:number){
-    console.log(this.noteList[i])
+    this.editList[i] = !this.editList[i]
     this.noteList[i].category = this.noteEditList[i].category
     this.noteList[i].content = this.noteEditList[i].content
     this.noteList[i].title = this.noteEditList[i].title
+    console.log(this.noteList[i])
   }
 
   

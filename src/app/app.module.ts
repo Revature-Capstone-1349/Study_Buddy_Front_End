@@ -25,6 +25,8 @@ import { TimerService } from './timer.service';
 import { MaterialModule } from './Modules/material.module';
 
 import { DrawerService } from './Service/drawer.service';
+import { SetsComponent } from './Components/sets/sets.component';
+import { AddSetComponentDialog, FlashCardSetComponent } from './Pages/flash-card-set/flash-card-set.component';
 
 
 
@@ -45,6 +47,9 @@ import { DrawerService } from './Service/drawer.service';
     HomePageComponent,
     ErrorPageComponent,
     BodyComponent,
+    SetsComponent,
+    FlashCardSetComponent,
+    AddSetComponentDialog
 
   ],
   imports: [
