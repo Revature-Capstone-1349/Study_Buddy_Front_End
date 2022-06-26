@@ -1,8 +1,7 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Model/user';
-import { AuthService } from 'src/app/Service/auth.service';
-// import { SessionsService } from 'src/app/services/sessions.service';
-// import { Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { UserDataService } from 'src/app/Service/user-data.service';
 
 @Component({
   selector: 'app-register',
@@ -16,28 +15,25 @@ export class RegisterComponent implements OnInit {
   registerStatus: boolean = false;
 
   constructor(
-    private authService: AuthService,
-    // private cookieService: SessionsService,
-    // private router: Router
+    private userDataService: UserDataService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
-  onSubmitHandler(){
-     if (this.user.name !== undefined
-      || this.user.email !== undefined 
-      || this.user.password !== undefined){
-        this.authService.register(this.user).subscribe(response => {
-          this.registerStatus = response;
-          if (response){
-            // this.router.navigateByUrl("");
-          }
-          else {
-              this.display=true;
-            }
-        });
-      }
+  onSubmitHandler() {
+    if (this.user.name !== undefined
+      || this.user.email !== undefined
+      || this.user.passwd !== undefined) {
+      this.userDataService.register(this.user).subscribe(response => {
+        this.registerStatus = response;
+        if (response) {
+          this.router.navigateByUrl("login");
+        }
+        else {
+          this.display = true;
+        }
+      });
+    }
   }
 }
