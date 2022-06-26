@@ -7,7 +7,7 @@ import { User } from '../Model/user';
     providedIn: 'root'
 })
 export class SessionsService {
-
+    userAccount : User = new User();
     checkSession: boolean = false;
 
     constructor(
@@ -18,24 +18,15 @@ export class SessionsService {
     /**
      * used to create a new cookie. Name the cookie whatever you want and the data you want it to store.
      * @param cookieName
-     * @param data 
+     * @param data
      */
     createSession(cookieName: string, data: any) {
         if (cookieName === "userAccount") {
             this.cookieService.set(cookieName, JSON.stringify(data));
+            this.userAccount = this.userAccountNormalizer(JSON.parse(this.cookieService.get("userAccount")));
             this.cookieService.set("loggedin", "true");
         }
         this.router.navigateByUrl("");
-    }
-
-    /**
-     * updates the cookie if user is allowed to edit their account details
-     */
-    updateSession(cookieName: string, data: any) {
-        if (cookieName === "userAccount") {
-            this.cookieService.set(cookieName, JSON.stringify(data));
-        }
-        this.router.navigate(['/profile']);
     }
 
     /**
@@ -48,7 +39,6 @@ export class SessionsService {
         (data.id === null)? data.id = undefined : "";
         return data;
     }
-
 
     getSession(cookieName: string): any {
         let cookie: any;
@@ -63,7 +53,8 @@ export class SessionsService {
 
     logout() {
         this.cookieService.deleteAll();
-        this.router.navigateByUrl("")
+        this.userAccount = new User();
+        this.router.navigateByUrl("");
     }
 
     /**
