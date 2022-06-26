@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpBackend } from '@angular/common/http';
 import { User } from 'src/app/Model/user';
+import { AuthService } from 'src/app/Service/auth.service';
 import { SessionsService } from 'src/app/Service/sessions.service';
-import { UserDataService } from 'src/app/Service/user-data.service';
 
 
 @Component({
@@ -16,8 +17,8 @@ export class LoginComponent implements OnInit {
   display = false;
 
   constructor(
-    private userDataService: UserDataService,
-    private sessionService: SessionsService
+    private authService: AuthService,
+    private cookieSession: SessionsService
   ) { }
 
   ngOnInit(): void {
@@ -25,10 +26,10 @@ export class LoginComponent implements OnInit {
 
   onSubmitHandler(data: any) {
     this.user = data;
-    this.userDataService.login(this.user).subscribe(response => {
+    this.authService.login(this.user).subscribe(response => {
       if (response !== null) {
-        this.sessionService.createSession("userAccount", response)
-        this.user = this.sessionService.getSession("userAccount")
+        this.cookieSession.createSession("userAccount", response)
+        this.user = this.cookieSession.getSession("userAccount")
       } else {
         this.display = true;
       }
