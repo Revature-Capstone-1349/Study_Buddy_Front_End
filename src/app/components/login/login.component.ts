@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpBackend } from '@angular/common/http';
 import { User } from 'src/app/Model/user';
+import { AuthService } from 'src/app/Service/auth.service';
 import { SessionsService } from 'src/app/Service/sessions.service';
-import { UserDataService } from 'src/app/Service/user-data.service';
 
 
 @Component({
@@ -17,22 +17,19 @@ export class LoginComponent implements OnInit {
   display = false;
 
   constructor(
-    private userDataService: UserDataService,
-    private sessionsService: SessionsService
+    private authService: AuthService,
+    private cookieSession: SessionsService
   ) { }
 
   ngOnInit(): void {
-    this.sessionsService.checkLoggedInActive()
   }
 
   onSubmitHandler(data: any) {
-    console.log(data);
-    (data.email != "" || data.email != undefined)? this.user.email = data.email : "";
-    (data.password != "" || data.password != undefined)? this.user.passwd = data.password : "";
-    this.userDataService.login(this.user).subscribe(response => {
+    this.user = data;
+    this.authService.login(this.user).subscribe(response => {
       if (response !== null) {
-        this.sessionsService.createSession("userAccount", response)
-        this.user = this.sessionsService.getSession("userAccount")
+        this.cookieSession.createSession("userAccount", response)
+        this.user = this.cookieSession.getSession("userAccount")
       } else {
         this.display = true;
       }
