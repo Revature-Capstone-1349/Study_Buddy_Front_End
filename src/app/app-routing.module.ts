@@ -12,11 +12,11 @@ import { ViewFlashCardsComponent } from './Pages/view-flash-cards/view-flash-car
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomePageComponent },
   { path: 'notes', component: ViewNotesComponent },
-  { path: 'flashCards', component: ViewFlashCardsComponent },
+  { path: 'flash-cards', component: ViewFlashCardsComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: ErrorPageComponent }
 ];
