@@ -13,8 +13,6 @@ import { FlashCardSetComponent } from './Pages/flash-card-set/flash-card-set.com
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: 'timer', component: TimerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'notes', component: ViewNotesComponent },
   { path: 'flash-cards', component: FlashCardSetComponent },

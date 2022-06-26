@@ -1,7 +1,6 @@
 import { inject, Injectable, resolveForwardRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from "@angular/router";
-import { waitForAsync } from '@angular/core/testing';
 import { User } from '../Model/user';
 
 @Injectable({
@@ -16,17 +15,22 @@ export class SessionsService {
         private router: Router
     ) { }
 
-
-
+    /**
+     * used to create a new cookie. Name the cookie whatever you want and the data you want it to store.
+     * @param cookieName
+     * @param data 
+     */
     createSession(cookieName: string, data: any) {
         if (cookieName === "userAccount") {
             this.cookieService.set(cookieName, JSON.stringify(data));
             this.cookieService.set("loggedin", "true");
         }
-        this.reloadCurrentPage();
-        this.router.navigateByUrl("/dashboard");
+        this.router.navigateByUrl("");
     }
 
+    /**
+     * updates the cookie if user is allowed to edit their account details
+     */
     updateSession(cookieName: string, data: any) {
         if (cookieName === "userAccount") {
             this.cookieService.set(cookieName, JSON.stringify(data));
@@ -34,15 +38,14 @@ export class SessionsService {
         this.router.navigate(['/profile']);
     }
 
+    /**
+     * sets any empty stings to null
+     */
     userAccountNormalizer(data: User): User {
-        if (data.name === '' || data.name === null)
-            data.name = undefined;
-        if (data.email === '' || data.email === null)
-            data.email = undefined;
-        if (data.password === '' || data.password === null)
-            data.password = undefined;
-        if (data.id === null)
-            data.id = undefined;
+        (data.name === '' || data.name === null)? data.name = undefined : "";
+        (data.email === '' || data.email === null)? data.email = undefined : "";
+        (data.passwd === '' || data.passwd === null)? data.passwd = undefined : "";
+        (data.id === null)? data.id = undefined : "";
         return data;
     }
 
@@ -52,44 +55,49 @@ export class SessionsService {
         if (cookieName === 'userAccount') {
             cookie = this.userAccountNormalizer(JSON.parse(this.cookieService.get(cookieName)));
             return cookie;
-        }else{
+        } else {
             cookie = JSON.parse(this.cookieService.get(cookieName))
             return cookie;
         }
     }
 
-    logout(){
+    logout() {
         this.cookieService.deleteAll();
-        this.router.navigateByUrl("/home")
+        this.router.navigateByUrl("")
     }
 
-
+    /**
+     * if user is logged in this will redirect the user to root/homepage.
+     */
     sessionActive() {
         this.checkSession = this.checkLoggedInActive();
-        console.log(this.checkSession = this.checkLoggedInActive())
-        if (this.checkSession == true) {
-            this.loggedInDirector();
-        } else if (this.checkSession === false) {
-            this.loggedOutDirector();
-        }
-
+        (this.checkSession == true)? this.loggedInDirector() : (this.checkSession === false)? this.loggedOutDirector() : "";
     }
 
+    /**
+     * returns a boolean to see if you're logged in.
+     */
     checkLoggedInActive(): boolean {
         return this.cookieService.check("loggedin")
     }
 
+    /**
+     * if user logged in redirect user to root/homepage.
+     */
     loggedInDirector() {
-        if (this.checkLoggedInActive() == true)
-            this.router.navigateByUrl("/dashboard");
+        (this.checkLoggedInActive() == true)? this.router.navigateByUrl("") : "";
     }
 
+    /**
+     * if user logged out redirect to root/homepage.
+     */
     loggedOutDirector() {
-        if (this.checkLoggedInActive() === false) {
-            this.router.navigateByUrl("/home")
-        }
+        (this.checkLoggedInActive() === false)? this.router.navigateByUrl("") : "";
     }
 
+    /**
+     * if user logged out redirect to homepage.
+     */
     checkCookieActive(cookieName: string): boolean {
         return this.cookieService.check(cookieName);
     }
@@ -97,5 +105,4 @@ export class SessionsService {
     reloadCurrentPage() {
         window.location.reload();
     }
-
 }
