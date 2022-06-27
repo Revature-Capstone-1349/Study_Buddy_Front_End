@@ -1,14 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SetsService {
+  subjectNotifier: Subject<void> = new Subject<void>();
   portNumber:number = 8080;
 
   constructor(private http: HttpClient) { }
+
+  notifyAboutChange() {
+    this.subjectNotifier.next();
+  }
 
   // all public and user sets by userId
   setsByUserIdAndPublic(userId: number): Observable<any>{

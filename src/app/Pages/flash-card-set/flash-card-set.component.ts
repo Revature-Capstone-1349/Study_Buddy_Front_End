@@ -10,8 +10,8 @@ import { SetsService } from 'src/app/Service/sets.service';
   styleUrls: ['./flash-card-set.component.css']
 })
 export class FlashCardSetComponent implements OnInit {
-
-  constructor(public dialog: Dialog) { }
+  constructor(public dialog: Dialog) {
+  }
 
   ngOnInit(): void {
   }
@@ -31,35 +31,40 @@ export class FlashCardSetComponent implements OnInit {
 export class AddSetComponentDialog implements OnInit {
   setItem: Sets = new Sets();
   privacy: boolean = false;
-  setAdded: boolean =true;
-  userId?: number;
+  setAdded: boolean = true;
+  userId: number = 1;
 
   ngOnInit(): void {
   }
 
-  constructor(public dialogRef: DialogRef<AddSetComponentDialog>, private setService: SetsService, private session: SessionsService) {
-    this.userId = session.userAccount.id
-    this.setItem = new Sets(this.userId);
+  constructor(
+    public dialogRef: DialogRef<AddSetComponentDialog>,
+    private setService: SetsService,
+    private session: SessionsService
+  ) {
+    async () => {
+      this.userId = await this.session.userAccount.userId!
+      this.setItem = new Sets(this.userId);
+    };
   }
 
   addSetFormHandler(): void {
     this.setItem.privacy = this.privacy ? 'public' : 'private';
     if (this.setItem.setName != undefined) {
-      this.dialogRef.close();
       this.setService.addSet(this.setItem).subscribe({
-        next: (res) =>{
+        next: (res) => {
+          this.dialogRef.close();
           console.log(this.setAdded);
-          
         },
-        error: (err) =>{
+        error: (err) => {
           this.setAdded = false;
         },
-        complete: () =>{
-          // refresh sets
+        complete: () => {
+          this.setService.notifyAboutChange();
         }
       });
-      
+
     }
-    
+
   }
 }
