@@ -1,6 +1,8 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Sets } from 'src/app/Model/sets';
+import { SessionsService } from 'src/app/Service/sessions.service';
+import { SetsService } from 'src/app/Service/sets.service';
 
 @Component({
   selector: 'app-flash-card-set',
@@ -29,21 +31,34 @@ export class FlashCardSetComponent implements OnInit {
 export class AddSetComponentDialog implements OnInit {
   setItem: Sets = new Sets();
   privacy: boolean = false;
+  setAdded: boolean =true;
+  userId?: number;
 
   ngOnInit(): void {
-    let userId = 1;
-    this.setItem = new Sets(userId);
   }
 
-  constructor(public dialogRef: DialogRef<AddSetComponentDialog>) {
-
+  constructor(public dialogRef: DialogRef<AddSetComponentDialog>, private setService: SetsService, private session: SessionsService) {
+    this.userId = session.userAccount.id
+    this.setItem = new Sets(this.userId);
   }
 
   addSetFormHandler(): void {
     this.setItem.privacy = this.privacy ? 'public' : 'private';
     if (this.setItem.setName != undefined) {
       this.dialogRef.close();
-      console.log(this.setItem);
+      this.setService.addSet(this.setItem).subscribe({
+        next: (res) =>{
+          console.log(this.setAdded);
+          
+        },
+        error: (err) =>{
+          this.setAdded = false;
+        },
+        complete: () =>{
+          // refresh sets
+        }
+      });
+      
     }
     
   }
