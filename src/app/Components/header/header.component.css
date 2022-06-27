@@ -16,6 +16,7 @@ div{
     background-color: rgba(242, 105, 38);
     color: black;
 }
-mat-card{
    
+mat-card{
+    padding: 0;
 }

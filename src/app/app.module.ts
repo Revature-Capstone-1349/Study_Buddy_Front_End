@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AddNotesComponent } from './Components/add-notes/add-notes.component';
 import { AddFlashCardComponent } from './Components/add-flash-card/add-flash-card.component';
 import { ViewNotesComponent } from './Pages/view-notes/view-notes.component';
-import { ViewFlashCardsComponent } from './Pages/view-flash-cards/view-flash-cards.component';
+import { ViewFlashCardsComponent, ViewFlashCardsDialogComponent } from './Pages/view-flash-cards/view-flash-cards.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -23,7 +23,10 @@ import { TimerComponent } from './Components/timer/timer.component';
 import { CreateTimerComponent } from './Components/create-timer/create-timer.component';
 import { TimerService } from './timer.service';
 import { MaterialModule } from './Modules/material.module';
-import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
+
+import { DrawerService } from './Service/drawer.service';
+import { SetsComponent } from './Components/sets/sets.component';
+import { AddSetComponentDialog, FlashCardSetComponent } from './Pages/flash-card-set/flash-card-set.component';
 
 import { FooterComponent } from './Components/footer/footer.component';
 
@@ -38,6 +41,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     AddFlashCardComponent,
     ViewNotesComponent,
     ViewFlashCardsComponent,
+    ViewFlashCardsDialogComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
@@ -46,7 +50,10 @@ import { FooterComponent } from './Components/footer/footer.component';
     ErrorPageComponent,
     BodyComponent,
     ViewFlashCardsDialogComponent,
-    FooterComponent
+    FooterComponent,
+    SetsComponent,
+    FlashCardSetComponent,
+    AddSetComponentDialog
 
   ],
   imports: [
@@ -60,7 +67,11 @@ import { FooterComponent } from './Components/footer/footer.component';
     AppRoutingModule,
 
   ],
-  providers: [CookieService,TimerService],
+  providers: [
+    CookieService,
+    TimerService,
+    DrawerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

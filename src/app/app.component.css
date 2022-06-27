@@ -28,3 +28,6 @@
     
     padding-left: 10px;
   }
+mat-drawer-container {
+    width: 100%;
+}

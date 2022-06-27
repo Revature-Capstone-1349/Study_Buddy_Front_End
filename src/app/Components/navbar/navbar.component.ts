@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SessionsService } from 'src/app/Service/sessions.service';
 import { Router } from '@angular/router';
 import { HttpBackend } from '@angular/common/http';
+import { DrawerService } from 'src/app/Service/drawer.service';
 
 
 @Component({
@@ -16,10 +17,8 @@ export class NavbarComponent implements OnInit {
   logger: boolean = false;
   call = this.checkLogger();
 
-  constructor(private sessionService: SessionsService) { }
+  constructor(private sessionService: SessionsService, private drawerService: DrawerService) { }
             
-
-
   ngOnInit(): void {
     this.checkLogger()
   }
@@ -33,6 +32,14 @@ export class NavbarComponent implements OnInit {
 
   onClickLogout(){
     this.sessionService.logout();
+  }
+
+  public get hideDrawer(): boolean{
+    return this.drawerService.isExpanded;
+  }
+
+  public set hideDrawer(value: boolean){
+    this.drawerService.isExpanded = value;
   }
   
 }
