@@ -16,9 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'notes', component: ViewNotesComponent },
   { path: 'flash-cards', component: FlashCardSetComponent },
+  { path: 'view-flash-cards/:setId', component: ViewFlashCardsComponent },
   { path: 'register', component: RegisterComponent },
   // test routes
-  { path: 'flash-card-test', component: ViewFlashCardsComponent },
   // 
   { path: '**', component: ErrorPageComponent },
 
