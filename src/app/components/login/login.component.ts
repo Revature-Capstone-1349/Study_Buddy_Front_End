@@ -16,20 +16,20 @@ export class LoginComponent implements OnInit {
   display = false;
 
   constructor(
-    private authService: UserDataService,
-    private cookieSession: SessionsService
+    private userDataService: UserDataService,
+    private sessionService: SessionsService
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmitHandler() {
-    console.log(this.user);
-    
-    this.authService.login(this.user).subscribe(response => {
+  onSubmitHandler(data: any) {
+    this.user = data;
+    this.userDataService.login(this.user).subscribe(response => {
+
       if (response !== null) {
-        this.cookieSession.createSession("userAccount", response)
-        this.user = this.cookieSession.getSession("userAccount")
+        this.sessionService.createSession("userAccount", response)
+        this.user = this.sessionService.getSession("userAccount")
       } else {
         this.display = true;
       }

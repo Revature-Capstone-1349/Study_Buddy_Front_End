@@ -18,8 +18,8 @@
 				<mat-label>Password</mat-label>
 				<input
 					matInput
-					[(ngModel)] = 'user.passwd'
-					#password="ngModel"
+					ngModel
+					#passwd="ngModel"
 					[type]="hidePass ? 'password' : 'text'"
 					name="passwd"
 					minlength="6"
