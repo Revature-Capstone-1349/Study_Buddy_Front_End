@@ -23,7 +23,9 @@ export class SessionsService {
     createSession(cookieName: string, data: any) {
         if (cookieName === "userAccount") {
             this.cookieService.set(cookieName, JSON.stringify(data));
-            this.userAccount = this.userAccountNormalizer(JSON.parse(this.cookieService.get("userAccount")));
+            //console.log(JSON.parse(this.cookieService.get("userAccount")))
+            this.userAccount = JSON.parse(this.cookieService.get("userAccount"));
+            //console.log(this.userAccount)
             this.cookieService.set("loggedin", "true");
         }
         this.router.navigateByUrl("");
