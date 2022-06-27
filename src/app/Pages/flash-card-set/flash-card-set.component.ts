@@ -38,7 +38,7 @@ export class AddSetComponentDialog implements OnInit {
   }
 
   constructor(public dialogRef: DialogRef<AddSetComponentDialog>, private setService: SetsService, private session: SessionsService) {
-    this.userId = session.userAccount.id
+    this.userId = session.userAccount.userId
     this.setItem = new Sets(this.userId);
   }
 

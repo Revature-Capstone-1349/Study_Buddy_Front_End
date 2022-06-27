@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   // test routes
   { path: 'flash-card-test', component: ViewFlashCardsComponent },
-  {path: 'addNote-test', component:AddNotesComponent},
+  {path: 'addNotetest', component:AddNotesComponent},
   // 
   { path: '**', component: ErrorPageComponent },
 

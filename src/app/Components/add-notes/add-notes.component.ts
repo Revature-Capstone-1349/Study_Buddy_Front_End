@@ -13,15 +13,16 @@ import { SessionsService } from 'src/app/Service/sessions.service';
 })
 export class AddNotesComponent implements OnInit {
 
-  note = new notes(this.session.getSession("userAccount").id)
-  user = new User()
+  note = new notes()
+  user : User
 
   constructor(
     private session: SessionsService,
     private noteService: NotesService,
     private snack: MatSnackBar
     ) {
-      console.log(session.getSession("userAccount").id);
+      this.user = session.userAccount
+      console.log(this.user)
      }
 
   ngOnInit(): void {
@@ -29,8 +30,10 @@ export class AddNotesComponent implements OnInit {
 //Add a onclick function for creating the note
 onSubmitHandler(){
   console.log("Form was submitted");
-  console.log(this.session.userAccount.id)
-  console.log(this.note);
+  // console.log()
+  console.log(this.user.userId);
+  this.note.userId = this.user.userId
+  console.log(this.note)
   this.noteService.addNote(this.note).subscribe(response =>{
     console.log(response)
     this.snack.open("Your note has been added")

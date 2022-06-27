@@ -38,7 +38,7 @@ export class SessionsService {
         (data.name === '' || data.name === null)? data.name = undefined : "";
         (data.email === '' || data.email === null)? data.email = undefined : "";
         (data.passwd === '' || data.passwd === null)? data.passwd = undefined : "";
-        (data.id === null)? data.id = undefined : "";
+        (data.userId === null)? data.userId = undefined : "";
         return data;
     }
 
