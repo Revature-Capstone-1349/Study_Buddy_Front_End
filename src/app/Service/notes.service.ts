@@ -14,11 +14,11 @@ export class NotesService {
     return this.http.get<any>("http://localhost:8080/api/Notes");
   }
 
- getNotesById(id: number): Observable<any>{
+ getNotesById(id: any): Observable<any>{
     return this.http.get<any>(`http://localhost:8080/api/Notes/${id}`);
   }
 
- getNotesByUserId(id: number): Observable<any>{
+ getNotesByUserId(id: any): Observable<any>{
     return this.http.get<any>(`http://localhost:8080/api/Notes/byUser/${id}`);
   }
  
@@ -30,7 +30,7 @@ export class NotesService {
     return this.http.put<any>("http://localhost:8080/api/Notes", notes);
   }
 
-  getDeleteById(id: number): Observable<any>{
+  getDeleteById(id: any): Observable<any>{
     return this.http.delete<any>(`http://localhost:8080/api/Notes/${id}`);
   }
 

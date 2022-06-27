@@ -26,6 +26,7 @@ export class AddNotesComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    this.user = this.session.getSession("userAccount")
   }
 //Add a onclick function for creating the note
 onSubmitHandler(){
@@ -36,7 +37,9 @@ onSubmitHandler(){
   console.log(this.note)
   this.noteService.addNote(this.note).subscribe(response =>{
     console.log(response)
-    this.snack.open("Your note has been added")
+    this.snack.open("Your note has been......", "Created", {
+      duration : 5000
+    })
   })
   
 }
