@@ -1,12 +1,12 @@
-.container{
-    align-self: center;
+button {
+    display: none;
+    margin: 2px;
+    opacity: .6;
 }
-
-mat-card{
-    margin: 10px;
+button:hover {
+    opacity: 1;
 }
-
- mat-card-actions button{
-    margin: 10px;
-   align-content: center;
-} 
+mat-card:hover button{
+    display: block;
+    transition: 0.4s;
+}

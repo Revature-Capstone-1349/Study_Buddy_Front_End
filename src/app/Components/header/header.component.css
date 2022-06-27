@@ -9,7 +9,6 @@ p{
 a{
     font-family: 'FuturaMedium';
 }
-
-div{
-    background-color: rgba(242, 105, 38);
+mat-card{
+    padding: 0;
 }
