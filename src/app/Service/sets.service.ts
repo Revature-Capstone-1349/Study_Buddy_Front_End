@@ -16,7 +16,7 @@ export class SetsService {
   }
 
   // all public and user sets by userId
-  setsByUserIdAndPublic(userId: number): Observable<any>{
+  setsByUserIdAndPublic(userId: any): Observable<any>{
     return this.http.get(`http://localhost:${this.portNumber}/api/Sets/publicSet/${userId}`);
   }
 

@@ -1,6 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Sets } from 'src/app/Model/sets';
+import { User } from 'src/app/Model/user';
 import { SessionsService } from 'src/app/Service/sessions.service';
 import { SetsService } from 'src/app/Service/sets.service';
 
@@ -10,7 +11,14 @@ import { SetsService } from 'src/app/Service/sets.service';
   styleUrls: ['./flash-card-set.component.css']
 })
 export class FlashCardSetComponent implements OnInit {
-  constructor(public dialog: Dialog) {
+
+  user: User
+
+  constructor(
+    public dialog: Dialog, 
+    private session: SessionsService
+    ) {
+    this.user = this.session.getSession("userAccount")
   }
 
   ngOnInit(): void {
@@ -36,20 +44,25 @@ export class AddSetComponentDialog implements OnInit {
 
   ngOnInit(): void {
   }
+  user : User
 
   constructor(
     public dialogRef: DialogRef<AddSetComponentDialog>,
     private setService: SetsService,
     private session: SessionsService
   ) {
-    async () => {
-      this.userId = await this.session.userAccount.userId!
-      this.setItem = new Sets(this.userId);
-    };
+    this.user = this.session.getSession("userAccount")
+    console.log("This user is " + this.user.userId)
+    // async () => {
+      // this.user = await this.session.getSession("userAccount")
+      // console.log(this.user)
+      this.setItem = new Sets(this.user.userId);
+    // };
   }
 
   addSetFormHandler(): void {
     this.setItem.privacy = this.privacy ? 'public' : 'private';
+    console.log(this.setItem)
     if (this.setItem.setName != undefined) {
       this.setService.addSet(this.setItem).subscribe({
         next: (res) => {
