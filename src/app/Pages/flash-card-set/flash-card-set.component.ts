@@ -39,9 +39,13 @@ export class AddSetComponentDialog implements OnInit {
 
   constructor(
     public dialogRef: DialogRef<AddSetComponentDialog>,
-    private setService: SetsService
+    private setService: SetsService,
+    private session: SessionsService
   ) {
-    this.setItem = new Sets(this.userId);
+    async () => {
+      this.userId = await this.session.userAccount.userId!
+      this.setItem = new Sets(this.userId);
+    };
   }
 
   addSetFormHandler(): void {

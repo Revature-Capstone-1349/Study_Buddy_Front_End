@@ -10,6 +10,7 @@ import { HomePageComponent } from "./Pages/home-page/home-page.component";
 import { ViewNotesComponent } from './Pages/view-notes/view-notes.component';
 import { ViewFlashCardsComponent } from './Pages/view-flash-cards/view-flash-cards.component';
 import { FlashCardSetComponent } from './Pages/flash-card-set/flash-card-set.component';
+import { AddNotesComponent } from './Components/add-notes/add-notes.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'view-flash-cards/:setId', component: ViewFlashCardsComponent },
   { path: 'register', component: RegisterComponent },
   // test routes
+  { path: 'flash-card-test', component: ViewFlashCardsComponent },
+  { path: 'addNotetest', component: AddNotesComponent },
   // 
   { path: '**', component: ErrorPageComponent },
 

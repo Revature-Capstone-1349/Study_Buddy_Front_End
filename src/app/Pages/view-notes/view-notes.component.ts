@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { notes } from 'src/app/Model/notes';
+import { User } from 'src/app/Model/user';
+import { NotesService } from 'src/app/Service/notes.service';
+import { SessionsService } from 'src/app/Service/sessions.service';
 
 @Component({
   selector: 'app-view-notes',
@@ -9,32 +13,27 @@ import { notes } from 'src/app/Model/notes';
 export class ViewNotesComponent implements OnInit {
   userId: number = 1
 
-  noteList : notes[] = [
-    new notes(this.userId, "Title", "Category", "Content"),
-    new notes(this.userId, "Title2", "Category2", "Content2"),
-    new notes(this.userId, "Title3", "Category3", "Content3"),
-    new notes(this.userId, "Title4", "Category4", "Content4"),
-    new notes(this.userId, "Title5", "Category5", "Content5"),
-    new notes(this.userId, "Title6", "Category6", "Content6"),
-    new notes(this.userId, "Title7", "Category7", "Content7"),
-    new notes(this.userId, "Title8", "Category8", "Content8")
-  ]
-  noteEditList : notes[] = [
-    new notes(this.userId, "Title", "Category", "Content"),
-    new notes(this.userId, "Title2", "Category2", "Content2"),
-    new notes(this.userId, "Title3", "Category3", "Content3"),
-    new notes(this.userId, "Title4", "Category4", "Content4"),
-    new notes(this.userId, "Title5", "Category5", "Content5"),
-    new notes(this.userId, "Title6", "Category6", "Content6"),
-    new notes(this.userId, "Title7", "Category7", "Content7"),
-    new notes(this.userId, "Title8", "Category8", "Content8")
-  ]
+  user: User
+
+  noteList : notes[] = []
   editModeOn = false;
   editList : boolean[] = [];
 
-  constructor() { }
+  constructor(
+    private session: SessionsService,
+    private noteService: NotesService,
+    private snack: MatSnackBar
+  ) { 
+    this.user = this.session.getSession("userAccount")
+    console.log(this.user)
+  }
 
   ngOnInit(): void {
+    this.user = this.session.getSession("userAccount")
+    this.noteService.getNotesByUserId(this.user.userId).subscribe(response => {
+      this.noteList  = response
+    })
+
     this.noteList.forEach(element => {
       this.editList.push(false)
     });
@@ -45,20 +44,34 @@ export class ViewNotesComponent implements OnInit {
     // console.log(this.editList)
     this.editList[id] = !this.editList[id]
     // console.log("Origin list " + this.noteList[id].category)
-
-    this.noteEditList[id].cat = this.noteList[id].cat
-    this.noteEditList[id].title = this.noteList[id].title
-    this.noteEditList[id].content = this.noteList[id].content
-    
+    this.noteService.getNotesByUserId(this.user.userId).subscribe(response => {
+      this.noteList  = response
+    })
     // console.log("Edit list " + this.noteEditList[id].category)  
   }
 
-  ngSubmitHandler(i:number){
-    this.editList[i] = !this.editList[i]
-    this.noteList[i].cat = this.noteEditList[i].cat
-    this.noteList[i].content = this.noteEditList[i].content
-    this.noteList[i].title = this.noteEditList[i].title
-    console.log(this.noteList[i])
+  ngSubmitHandler(index:any){
+    this.editList[index] = !this.editList[index]
+    console.log("Note to be saved is " + this.noteList[index])
+    this.noteService.updateNote(this.noteList[index]).subscribe(response => {
+      this.snack.open("Edit is .......", "Saved",{
+        duration: 5000
+      })
+    })
+
+  }
+
+  onTrashClicked(id:any, index:number){
+    this.editList[index] = !this.editList[index]
+    console.log("Note to be deleted is " + this.noteList[index])
+
+    this.noteService.getDeleteById(id).subscribe(response =>{
+      this.snack.open("The note has been .......", "Deleted",{
+        duration: 5000
+      })
+    })
+    window.location.reload()
+
   }
 
   

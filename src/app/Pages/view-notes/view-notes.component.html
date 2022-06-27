@@ -14,7 +14,7 @@
 								class="form-control"
 								name="category"
 								#category="ngModel"
-								[(ngModel)]="noteEditList[i].cat"
+								[(ngModel)]="noteList[i].cat"
 								matInput
 							/>
 						</mat-form-field>
@@ -29,7 +29,7 @@
 								class="form-control"
 								name="title"
 								#title="ngModel"
-								[(ngModel)]="noteEditList[i].title"
+								[(ngModel)]="noteList[i].title"
 								matInput
 							/>
 						</mat-form-field>
@@ -68,7 +68,8 @@
 						>
 							<mat-icon>save</mat-icon>
 						</button>
-						<button mat-mini-fab color="warn" type="button" *ngIf="editList[i]">
+						<button mat-mini-fab color="warn" type="button" *ngIf="editList[i]"
+						(click) = "onTrashClicked(noteList[i].notesId, i)">
 							<mat-icon>delete</mat-icon>
 						</button>
 					</div>
@@ -86,7 +87,7 @@
 							matInput
 							ngModel
 							#content="ngModel"
-							[(ngModel)]="noteEditList[i].content"
+							[(ngModel)]="noteList[i].content"
 							required
 							style='resize: none;'
 							cdkTextareaAutosize
