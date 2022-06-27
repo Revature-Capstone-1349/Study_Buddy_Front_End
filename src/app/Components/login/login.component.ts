@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  onSubmitHandler() {
-    
+  onSubmitHandler(data: any) {
+    this.user = data;
     this.userDataService.login(this.user).subscribe(response => {
 
       if (response !== null) {
