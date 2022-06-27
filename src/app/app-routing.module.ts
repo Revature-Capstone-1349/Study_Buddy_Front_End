@@ -10,6 +10,7 @@ import { HomePageComponent } from "./Pages/home-page/home-page.component";
 import { ViewNotesComponent } from './Pages/view-notes/view-notes.component';
 import { ViewFlashCardsComponent } from './Pages/view-flash-cards/view-flash-cards.component';
 
+
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'timer', component: TimerComponent },

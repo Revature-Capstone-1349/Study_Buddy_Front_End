@@ -25,6 +25,8 @@ import { TimerService } from './timer.service';
 import { MaterialModule } from './Modules/material.module';
 import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/view-flash-cards-dialog.component';
 
+import { FooterComponent } from './Components/footer/footer.component';
+
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { ViewFlashCardsDialogComponent } from './Pages/view-flash-cards-dialog/v
     HomePageComponent,
     ErrorPageComponent,
     BodyComponent,
-    ViewFlashCardsDialogComponent
+    ViewFlashCardsDialogComponent,
+    FooterComponent
 
   ],
   imports: [

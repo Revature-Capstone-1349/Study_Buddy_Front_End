@@ -12,3 +12,15 @@
     background-color: #ffd740;
     color: #673ab7;
   }
+
+  h1{
+    font-family: 'FuturaBold';
+  }
+
+mat-label{
+  font-family: 'FuturaBook';
+}
+
+button{
+  font-family: 'FuturaBold';
+}

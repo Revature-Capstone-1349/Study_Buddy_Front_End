@@ -8,8 +8,14 @@ p{
 
 a{
     font-family: 'FuturaMedium';
+    color: rgba(242, 105, 38);
+    background-color: white;
 }
 
 div{
     background-color: rgba(242, 105, 38);
+    color: black;
+}
+mat-card{
+   
 }

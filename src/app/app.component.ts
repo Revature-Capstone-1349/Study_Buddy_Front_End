@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Study_Buddy_Front_End';
+  showFiller = false;
 }

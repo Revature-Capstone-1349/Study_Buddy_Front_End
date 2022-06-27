@@ -1,1 +1,30 @@
 
+  
+  .timer-sidenav {
+    padding: 10px;
+  }
+  
+  .mat-drawer{
+    width: 275px;
+    height: 300px;
+  }
+
+  button{
+    background-color: #ffd740;
+    width: 275px;
+    height: 100px;
+    font-family: 'FuturaBold';
+    font-size: 25px;
+    
+  }
+  
+  h1{
+    text-align: center;
+    font-family: 'futuraHeavy';
+    color: white;
+  }
+
+  div{
+    
+    padding-left: 10px;
+  }

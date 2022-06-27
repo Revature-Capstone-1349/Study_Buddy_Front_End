@@ -4,6 +4,7 @@ import { SessionsService } from 'src/app/Service/sessions.service';
 import { Router } from '@angular/router';
 import { HttpBackend } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

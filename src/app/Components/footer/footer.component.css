@@ -1,0 +1,7 @@
+mat-card {
+    max-width: 500px;
+    max-height: 2000px;
+    margin: 1em auto;
+    text-align: center;
+    font-family: 'FuturaBold';
+}

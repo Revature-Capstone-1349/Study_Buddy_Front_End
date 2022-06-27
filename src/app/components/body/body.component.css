@@ -1,11 +1,14 @@
 mat-card{
-    background-color: rgba(242, 105, 38);
+    background-color: #673ab7;
+    color: white;
 }
 
 mat-card-header{
     font-family: 'FuturaBold';
 }
-
+mat-card-subtitle{
+    color: white;
+}
 p{
     font-family: 'FuturaBook';
 }
@@ -13,5 +16,6 @@ p{
 button{
     font-family: 'FuturaHeavy';
     background-color: white;
+    color: black;
 
 }

@@ -3,6 +3,7 @@ mat-card {
     margin: 1em auto;
     text-align: center;
     font-family: 'FuturaBold';
+    background-color:  #ffd740;
 }
 
 mat-form-field {
@@ -11,4 +12,7 @@ mat-form-field {
 
 button{
     font-family: 'FuturaBook';
+}
+div{
+    background-color: black;
 }
