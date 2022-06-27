@@ -18,6 +18,8 @@ const routes: Routes = [
   { path: 'notes', component: ViewNotesComponent },
   { path: 'flash-cards', component: FlashCardSetComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomePageComponent },
+
   // test routes
   { path: 'flash-card-test', component: ViewFlashCardsComponent },
   // 
