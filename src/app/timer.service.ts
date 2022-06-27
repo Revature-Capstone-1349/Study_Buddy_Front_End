@@ -25,7 +25,6 @@ export class TimerService {
 
   ngOnInit() {
     (this.initTimer.hours === 0 && this.initTimer.minutes === 0 && this.initTimer.seconds === 0)? this.disabled = true : this.disabled = false;
-
   }
 
   setTimer(hours: number, minutes: number, seconds: number) {

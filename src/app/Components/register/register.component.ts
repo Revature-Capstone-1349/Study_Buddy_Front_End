@@ -1,8 +1,8 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { User } from 'src/app/Model/user';
 import { UserDataService } from 'src/app/Service/user-data.service';
-// import { SessionsService } from 'src/app/services/sessions.service';
-// import { Router } from "@angular/router";
+
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,8 @@ export class RegisterComponent implements OnInit {
   registerStatus: boolean = false;
 
   constructor(
-    private userService: UserDataService
+    private userDataService: UserDataService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +28,10 @@ export class RegisterComponent implements OnInit {
      if (this.user.name !== undefined
       || this.user.email !== undefined 
       || this.user.passwd !== undefined){
-        this.userService.register(this.user).subscribe(response => {
+        this.userDataService.register(this.user).subscribe(response => {
           this.registerStatus = response;
           if (response){
-            // this.router.navigateByUrl("");
+            this.router.navigateByUrl("/login");
           }
           else {
               this.display=true;

@@ -30,7 +30,7 @@ export class SessionsService {
     }
 
     /**
-     * sets any empty stings to null
+     * sets any empty stings to undefined
      */
     userAccountNormalizer(data: User): User {
         (data.name === '' || data.name === null)? data.name = undefined : "";
@@ -93,7 +93,7 @@ export class SessionsService {
         return this.cookieService.check(cookieName);
     }
 
-    reloadCurrentPage() {
-        window.location.reload();
-    }
+    // reloadCurrentPage() {
+    //     window.location.reload();
+    // }
 }
